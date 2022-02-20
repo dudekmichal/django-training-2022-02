@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Statistics:</h1>
+    <p>Alive competitors: {{alive_competitors_count}}/{{all_competitors_count}}</p>
+    <p>Debt summary: {{debt_summary}} ₩</p>
+    <p>Current prize: {{current_prize}} ₩</p>
+
+    <h2>All competitors:</h2>
+    <table>
+        {% for item in all_competitors %}
+            <tr>
+                <td>ID: {{item.id}} Name {{item.name}}</td>
+                <td>{{item.debt}} ₩</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>All alive competitors:</h2>
+    <table>
+        {% for item in all_alive_competitors %}
+            <tr>
+                <td style="border:solid"> <a href="{%url 'player' item.id %}">ID: {{item.id}} Name {{item.name}}</a></td>
+                <td style="border:solid">Age: {{item.age}}</td>
+                <td style="border:solid">Debt: {{item.debt}} ₩</td>
+                <td style="border:solid">Weight: {{item.weight}} kg</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
